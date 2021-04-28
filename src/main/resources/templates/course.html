@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Acme&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" th:href="@{/css/home.css}">
+    <link rel="stylesheet" th:href="@{/css/profile.css}">
+    <link rel="stylesheet" th:href="@{/css/left-right.css}">
+    <title>ProgersLife | Home</title>
+</head>
+
+<body>
+<div class="wrapper">
+    <div class="main">
+        <div class="title">
+            <div class="username">Home</div>
+        </div>
+        <form th:action="@{/home}" method="get">
+            <input type="submit" value="Home" />
+        </form>
+        <div class="course">
+            <div class="content">
+                <span class="user-name" th:text="${course.title}"></span>
+                <span class="time" th:text="${course.description}">3hrs</span>
+            </div>
+        </div>
+        <div class="videos">
+            <th:block th:each="video : ${course.videos}">
+                <div class="video">
+                    <a th:href="@{/video/} + ${video.id}" class="post-header">
+                        <div class="content">
+                            <span class="user-name" th:text="${video.title}"></span>
+                            <span class="time" th:text="${video.description}">3hrs</span>
+                        </div>
+                    </a>
+                </div>
+            </th:block>
+        </div>
+    </div>
+</div>
+<script src="http://code.jquery.com/jquery-1.8.3.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script type="text/javascript" th:src="@{/scripts/script.js}"></script></body>
+</html>
