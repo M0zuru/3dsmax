@@ -1,14 +1,17 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
+	<link rel="shortcut icon" href="favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link  href="login.css" rel="stylesheet">
 <title>Please Login</title>
 </head>
-<body>
-	<div th:fragment="content">
+<body class="body1">
+	<div th:fragment="content" class="div1">
 		<form name="f" th:action="@{/registration}" method="post">
 			<fieldset>
-				<legend>Please Login</legend>
-				<div th:if="${param.error}" class="alert alert-error">Invalid
+				<legend id="legend1"><strong>Please Login</strong></legend>
+				<div th:if="${param.error}" class="alert alert-error" id="invalid1">Invalid
 					username and password.</div>
-				<div th:if="${param.logout}" class="alert alert-success">You
+				<div th:if="${param.logout}" class="alert alert-success" id="invalid2">You
 					have been logged out.</div>
 				<label for="username">Username</label> <input type="text"
 					id="username" name="username" /> <label for="password">Password</label>
