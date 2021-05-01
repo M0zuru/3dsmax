@@ -10,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "video")
@@ -20,9 +22,12 @@ public class Video {
 	private int id;
 
 	@Column(name = "title")
+	@NotNull
+	@Size(min = 4)
 	private String title;
 
 	@Column(name = "description")
+	@NotNull
 	private String description;
 	
 	@Column(name = "path")

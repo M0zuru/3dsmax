@@ -11,7 +11,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @Configuration
 public class MvcConfig implements WebMvcConfigurer {
 
-    @Value("${user.profile.picture.dir}")
+    @Value("${video.storage.dir}")
     private String uploadDir;
 
     @Override

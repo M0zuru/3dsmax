@@ -7,4 +7,6 @@ import java.util.List;
 public interface CourseService {
     List<Course> getCourses();
     Course getCourseById(Integer id);
+
+    Course save(Course course);
 }

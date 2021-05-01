@@ -19,6 +19,9 @@
         <div class="title">
             <div class="username">Home</div>
         </div>
+        <form th:action="@{/home}" method="get">
+            <input type="submit" value="Home" />
+        </form>
         <div class="course">
             <div class="content">
                 <span class="user-name" th:text="${course.title}"></span>
@@ -29,8 +32,10 @@
             <div class="create-post-body">
                 <p>Title</p>
                 <input th:field="*{title}">
+                <p th:if="${#fields.hasErrors('title')}" th:errors="*{title}">Title Error</p>
                 <p>Description</p>
                 <input th:field="*{description}">
+                <p th:if="${#fields.hasErrors('description')}" th:errors="*{description}">Description Error</p>
                 <button type="submit" class="btn">Create course</button>
             </div>
         </form>

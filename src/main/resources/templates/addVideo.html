@@ -1,6 +1,5 @@
 <!DOCTYPE HTML>
-<html lang="en" xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,32 +22,19 @@
         <form th:action="@{/home}" method="get">
             <input type="submit" value="Home" />
         </form>
-        <div class="course">
-            <div class="content">
-                <span class="user-name" th:text="${course.title}"></span>
-                <span class="time" th:text="${course.description}">3hrs</span>
+        <form th:action="@{/add_video}" class="newPost" method="post" th:object="${video}" enctype="multipart/form-data">
+            <div class="create-post-body">
+                <p>Title</p>
+                <input th:field="*{title}">
+                <p th:if="${#fields.hasErrors('title')}" th:errors="*{title}">Title Error</p>
+                <p>Description</p>
+                <input th:field="*{description}">
+                <p th:if="${#fields.hasErrors('description')}" th:errors="*{description}">Description Error</p>
+                <input type="hidden" name="courseId" th:value="${courseId}" />
+                <input name="video" type="file" th:value="${video.path}" accept="video/*">
+                <button type="submit" class="btn">Create course</button>
             </div>
-        </div>
-        <div class="videos">
-            <th:block th:each="video : ${course.videos}">
-                <div class="video">
-                    <a th:href="@{/video/} + ${video.id}" class="post-header">
-                        <div class="content">
-                            <span class="user-name" th:text="${video.title}"></span>
-                            <span class="time" th:text="${video.description}">3hrs</span>
-                        </div>
-                    </a>
-                </div>
-            </th:block>
-        </div>
-        <div sec:authorize="hasRole('ROLE_ADMIN')">
-            <div>
-                <form th:action="@{/add_video}" method="get">
-                    <input type="hidden" name="courseId" th:value="${course.id}"/>
-                    <input type="submit" value="Add Video" />
-                </form>
-            </div>
-        </div>
+        </form>
     </div>
 </div>
 <script src="http://code.jquery.com/jquery-1.8.3.js"></script>
