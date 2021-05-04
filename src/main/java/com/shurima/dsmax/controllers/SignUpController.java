@@ -27,7 +27,7 @@ public class SignUpController {
 	@PostMapping("/registration")
 	public String registerUser(Model model, @Valid User user, Errors errors) {
 		if (!errors.hasErrors()) {
-			userService.save(user);
+			userService.save(user, true);
 			return "redirect:/login";
 		}
 		model.addAttribute("user", user);
