@@ -25,6 +25,12 @@ public class CourseController {
         return "course";
     }
 
+    @GetMapping("/course/{id}/edit")
+    public String getCourseEditForm(@PathVariable("id") Integer id, Model model) {
+        model.addAttribute("course", courseService.getCourseById(id));
+        return "createCourse";
+    }
+
     @Secured("ROLE_ADMIN")
     @GetMapping("/create_course")
     public String getCreateCourse(Model model) {

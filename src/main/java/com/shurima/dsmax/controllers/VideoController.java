@@ -31,6 +31,14 @@ public class VideoController {
         return "video";
     }
 
+    @GetMapping("/video/{id}/edit")
+    public String getVideoEditForm(@PathVariable("id") Integer id, Model model) {
+        Video video = videoService.getVideoById(id);
+        model.addAttribute("video", video);
+        model.addAttribute("courseId", video.getCourse().getId());
+        return "addVideo";
+    }
+
     @Secured("ROLE_ADMIN")
     @GetMapping("/add_video")
     public String getAddVideoForm(@RequestParam("courseId") Integer courseId, Model model) {

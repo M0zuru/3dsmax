@@ -48,6 +48,11 @@
                     <input type="submit" value="Add Video" />
                 </form>
             </div>
+            <div>
+                <form th:action="@{/course/{id}/edit(id=${course.id})}" method="get">
+                    <input type="submit" value="Edit Course" />
+                </form>
+            </div>
         </div>
     </div>
 </div>

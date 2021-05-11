@@ -1,5 +1,6 @@
 <!DOCTYPE HTML>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -29,6 +30,13 @@
                 <video width="auto" height="240" controls style=" margin-left: auto; margin-right: auto; display: block;">
                     <source th:src="${video.path}" type="video/mp4">
                 </video>
+            </div>
+        </div>
+        <div sec:authorize="hasRole('ROLE_ADMIN')">
+            <div>
+                <form th:action="@{/video/{id}/edit(id=${video.id})}" method="get">
+                    <input type="submit" value="Edit Video" />
+                </form>
             </div>
         </div>
     </div>
