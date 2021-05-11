@@ -27,7 +27,9 @@ public class VideoController {
 
     @GetMapping("/video/{id}")
     public String getVideo(@PathVariable("id") Integer id, Model model) {
-        model.addAttribute("video", videoService.getVideoById(id));
+        Video video = videoService.getVideoById(id);
+        model.addAttribute("video", video);
+        model.addAttribute("course", video.getCourse());
         return "video";
     }
 

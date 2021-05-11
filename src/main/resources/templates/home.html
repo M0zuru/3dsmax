@@ -1,49 +1,161 @@
 <!DOCTYPE HTML>
-<html lang="en" xmlns:th="http://www.thymeleaf.org"
+<html lang="ru" class="h-100" xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
 >
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Acme&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link rel="stylesheet" th:href="@{/css/home.css}">
-    <link rel="stylesheet" th:href="@{/css/profile.css}">
-    <link rel="stylesheet" th:href="@{/css/left-right.css}">
-    <title>ProgersLife | Home</title>
+    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"> -->
+    <link rel="stylesheet" th:href="@{/css/main.d08ef1f0b91214490173.css}">
+    <!--<link rel="stylesheet" th:href="@{/css/profile.css}">
+    <link rel="stylesheet" th:href="@{/css/left-right.css}">-->
+    <link rel="stylesheet" th:href="@{/css/login.css}">
+    <link rel="stylesheet" th:href="@{/css/zoom.css}">
+    <link rel="shortcut icon" th:href="@{/css/favicon.ico}">
+    <title>Изучение 3Ds Max</title>
 </head>
 
-<body>
-<div class="wrapper">
-    <div class="main">
-        <div class="title">
-            <div class="username">Home</div>
-        </div>
-        <div class="courses">
-            <th:block th:each="course : ${courses}">
-                <div class="course">
-                    <a th:href="@{/course/} + ${course.id}" class="post-header">
-                        <div class="content">
-                            <span class="user-name" th:text="${course.title}"></span>
-                            <span class="time" th:text="${course.description}">3hrs</span>
-                        </div>
+<body class="d-flex flex-column h-100">
+
+
+    <header class="header">
+        <div class="header-fixed">
+            <div class="grid-container">
+                <nav class="navbar navbar-expand-lg navbar-light header-navbvar">
+                    <a class="header-logo-link">
+                        <img th:src="@{/images/Logo.png}" alt="logo" class="header-logo-image">
+                        <div class="header-logo-text">Shurima</div>                        
                     </a>
-                </div>
-            </th:block>
+                </nav>
+            </div>
         </div>
-        <div sec:authorize="hasRole('ROLE_ADMIN')">
-            <div>
-                <form th:action="@{/create_course}" method="get">
-                    <input type="submit" value="Create Course" />
+        <div class="header-faker-wrap"></div>
+    </header>
+    
+        <div class="main-content">
+            
+        
+        <div>
+    
+    
+        <div class="course__intro-wrap">
+            <div class="container course">
+                
+                <img th:src="@{/images/ImageInFuture.png}" class="course__background">
+                
+                <div class="course__intro">
+                    <h1 id="course_title" data-slug="Intro" class="display-1 course__title">Intro В 3Ds Max</h1>
+                    <div class="course__intro-description"><p>Бесплатный курс на котором ты сможешь начать изучать программу 3Ds Max. Курс рассчитан на людей, которые раньше не работали с этой программой или вообще не знакомы с 3D моделированием. На базе этого мини-курса ты сможешь самостоятельно замоделить простые предметы, например, то, что находится в твоей комнате.</p></div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="course__content">
+  
+                <a class="nav-link tabs__link h2 mb-0 active" id="program-tab" data-toggle="tab" role="tab">Программа</a>
+
+                <div class="tab-content">
+                    <div class="tab-pane fade show active tabs__content" id="program" role="tabpanel">
+                        
+                       
+                        <div class="course__program-wrap">
+                            <div class="col-12 col-lg-4 px-0" id="lectures-sm">
+                                <div id="accordion" class="accordion">
+                                    
+    
+                                    <!-- Mobile -->
+                                    
+                                    <div class="card accordion__card">
+                                        <div class="card-header accordion__card-header">
+                                            <div class="accordion__card-trigger" data-toggle="collapse" data-target=".section2" aria-expanded="true">
+                                                <div class="accordion__card-trigger-content h2">
+                                                    <span>1</span>
+                                                    3Ds Max
+                                                </div>
+                                            </div>
+                                        </div>
+    
+                                        <div data-id="section2" class="section2 accordion__card-body-wrap collapse show" data-parent="#accordion" style="">
+                                            <div class="accordion__card-body">
+                                                <p>Уроки об основах 3Ds Max, построенные на опыте изучения софта.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                   
+                                </div>
+                            </div>
+    
+                            <!-- Desktop -->
+                            <div class="d-none d-lg-block col-lg-8 pl-4" id="lectures">
+                                
+    
+                                <div class="section2 collapse show" data-parent="#lectures" style="">
+                                    
+                                    <a th:href="@{/video/} + ${courses.get(0).videos.get(0).id}" class="task " style="background-image: url(./images/3dMax1.png);">
+                                        <div class="task__info">
+                                            <div class="task__name h2 mb-0">Интро в 3Ds Max</div>
+                                            <div class="task__description">Интро, первичная настройка и навигация в 3Ds Max</div>
+                                        </div> 
+                                    </a>
+                                    <br>
+                                    <a th:href="@{/video1/} + ${courses.get(0).videos.get(0).id}" class="task " style="background-image: url(./images/3dMax1.png);">
+                                        <div class="task__info">
+                                            <div class="task__name h2 mb-0">Интро в 3Ds Max</div>
+                                            <div class="task__description">Интро, первичная настройка и навигация в 3Ds Max</div>
+                                        </div> 
+                                    </a>
+                                    
+                                    
+                                </div>
+    
+                            </div>
+                            
+                        </div>
+    
+                    </div>
+                    
+                    
+                    
+                    
+                </div>
+    
+            </div>
+        </div>
+    </div>
+        </div>
+    <footer class="footer">
+        <div class="grid-container">
+            <div class="footer-content-wrap">
+                
+                <div class="grid-row footer-bottom-wrap">
+                    <div class="grid-col">
+                        <p class="footer-copyright-text">©Минский радиотехнический колледж (MRK). 2021</p>
+                    </div>
+                    
+                </div>
+                <form th:action="@{/logout}" method="post"> 
+                    <div class="LogoutButton"><input type="submit" class="logoutIcon" id="LogoutButton" value="Logout"/></div>
                 </form>
             </div>
         </div>
-        <form th:action="@{/logout}" method="post">
-            <p>Logout</p>
-            <input type="submit" class="logoutIcon" value=""/>
-        </form>
+    </footer>
+
+
+
+
+<div class="wrapper">
+    <div class="main">
+        
+        <div sec:authorize="hasRole('ROLE_ADMIN')">
+            <div>
+                <form th:action="@{/create_course}" method="get">
+                    <input type="submit" id="CreateButton" value="Create Course"/>
+                </form>
+            </div>
+        </div>
     </div>
 </div>
 <script src="http://code.jquery.com/jquery-1.8.3.js"></script>

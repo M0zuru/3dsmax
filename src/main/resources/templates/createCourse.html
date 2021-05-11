@@ -1,26 +1,24 @@
 <!DOCTYPE HTML>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="ru" class="h-100" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Acme&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link rel="stylesheet" th:href="@{/css/home.css}">
+    <link rel="stylesheet" th:href="@{/css/login.css}">
     <link rel="stylesheet" th:href="@{/css/profile.css}">
     <link rel="stylesheet" th:href="@{/css/left-right.css}">
-    <title>ProgersLife | Home</title>
+    <link rel="shortcut icon" th:href="@{/css/favicon.ico}">
+    <title>Создание курса</title>
 </head>
 
 <body>
 <div class="wrapper">
     <div class="main">
-        <div class="title">
-            <div class="username">Home</div>
-        </div>
         <form th:action="@{/home}" method="get">
-            <input type="submit" value="Home" />
+            <input class="btn1" type="submit" value="Home" />
         </form>
         <div class="course">
             <div class="content">
@@ -31,12 +29,12 @@
         <form th:action="@{/create_course}" class="newPost" method="post" th:object="${course}">
             <div class="create-post-body">
                 <p>Title</p>
-                <input th:field="*{title}">
+                <input th:field="*{title}" id="CreateTitle1">
                 <p th:if="${#fields.hasErrors('title')}" th:errors="*{title}">Title Error</p>
                 <p>Description</p>
-                <input th:field="*{description}">
+                <input th:field="*{description}" id="CreateTitle2">
                 <p th:if="${#fields.hasErrors('description')}" th:errors="*{description}">Description Error</p>
-                <button type="submit" class="btn">Create course</button>
+                <button type="submit" class="btn1">Create course</button>
             </div>
         </form>
     </div>

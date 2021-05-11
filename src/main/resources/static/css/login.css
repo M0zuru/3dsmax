@@ -1,0 +1,147 @@
+body {
+    background-color: #0d0d0d;
+    color: silver;
+}
+
+.div1 {
+    float: center;
+    margin-top: 12%;
+    margin-left: 20%;
+    margin-right: 20%;
+    height: 20%;
+    font-size: 30px;
+}
+
+#invalid1 {
+    color: red;
+    font-size: 20px;
+}
+
+#invalid2 {
+    color: red;
+    font-size: 20px;
+}
+
+#username {
+    border: 3px solid gray;
+    border-radius: 4px;
+    font-size: 20px;
+    width: 100%;
+    padding:4px
+}
+
+#password {
+    border: 3px solid gray;
+    border-radius: 4px;
+    font-size: 20px;
+    width: 100%;
+    padding: 4px;
+}
+
+#legend1 {
+    color: white;
+    font-size: 50px;
+    font-weight: 900;
+}
+
+.btn{
+    border: 3px solid black;
+    border-radius: 4px;
+    
+    display: inline-block;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15px;
+    
+    padding: 5px 30px;
+    font-size: 30px;
+    background-color: gray;
+}
+
+.btn1{
+    border: 3px solid black;
+    border-radius: 4px;
+    
+    display: inline-block;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15px;
+    
+    padding: 5px 30px;
+    font-size: 30px;
+    background-color: gray;
+}
+
+.btn1:hover{
+    transition-duration: 0.4s;
+    background-color:silver;
+}
+
+.registerBtn:hover {
+    transition-duration: 0.4s;
+    background-color:silver;
+}
+
+.form2 {
+    margin-left: 22%;
+    margin-top: 230Px;
+}
+
+.registerBtn{
+    border: 3px solid black;
+    border-radius: 4px;
+    
+    display: inline-block;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15px;
+    
+    padding: 5px 30px;
+    font-size: 30px;
+    background-color: gray;
+}
+
+.LogoutButton{
+    float: right;
+}
+
+#LogoutButton{
+    text-align: right;
+    border: 3px solid black;
+    border-radius: 4px;
+    
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15px;
+    
+    padding: 5px 30px;
+    font-size: 30px;
+    background-color: rgb(66, 66, 66);
+}
+
+#CreateButton{
+    border: 3px solid black;
+    border-radius: 4px;
+    
+    display: inline-block;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15px;
+    
+    padding: 5px 30px;
+    font-size: 30px;
+    background-color: rgb(66, 66, 66);
+}
+
+#CreateTitle1{
+    color: silver;
+}
+
+#CreateTitle2{
+    color: silver;
+}
