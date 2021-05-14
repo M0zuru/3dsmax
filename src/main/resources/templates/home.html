@@ -93,20 +93,16 @@
                                 
     
                                 <div class="section2 collapse show" data-parent="#lectures" style="">
+                                    <th:block th:each="course : ${courses}">
+                                        <a th:href="@{/video/} + ${course.videos.get(0).id}" class="task " style="background-image: url(./images/3dMax1.png);">
+                                            <div class="task__info">
+                                                <div class="task__name h2 mb-0" th:text="${course.title}"></div>
+                                                <div class="task__description" th:text="${course.description}"></div>
+                                            </div> 
+                                        </a>
+                                    </th:block>
                                     
-                                    <a th:href="@{/video/} + ${courses.get(0).videos.get(0).id}" class="task " style="background-image: url(./images/3dMax1.png);">
-                                        <div class="task__info">
-                                            <div class="task__name h2 mb-0">Интро в 3Ds Max</div>
-                                            <div class="task__description">Интро, первичная настройка и навигация в 3Ds Max</div>
-                                        </div> 
-                                    </a>
-                                    <br>
-                                    <a th:href="@{/video1/} + ${courses.get(0).videos.get(0).id}" class="task " style="background-image: url(./images/3dMax1.png);">
-                                        <div class="task__info">
-                                            <div class="task__name h2 mb-0">Интро в 3Ds Max</div>
-                                            <div class="task__description">Интро, первичная настройка и навигация в 3Ds Max</div>
-                                        </div> 
-                                    </a>
+                                
                                     
                                     
                                 </div>

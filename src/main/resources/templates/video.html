@@ -24,35 +24,16 @@
             </div>
 
             <div class="sidebar__task-list navbar-collapse offcanvas-collapse">
-                <a th:href="@{/video/} + ${course.videos.get(0).id}" class="sidebar__task-list-item sidebar__task-list-item_active sidebar__task-list-item_completed">
-                <span class="sidebar__task-list-item-text">Урок 1.Интерфейс</span>
-                </a> <br>
+                <th:block th:each="video : ${course.videos}">
+                    <a th:href="@{/video/} + ${video.id}" class="sidebar__task-list-item sidebar__task-list-item_active sidebar__task-list-item_completed">
+                    <span class="sidebar__task-list-item-text" th:text="${video.title}"></span>
+                    </a> <br>
+                </th:block>
+                
 
              <!--  th:href="@{/video/{id}(id=${course.videos.get(video.id + 1).id})}"    -->
 
-                <a th:href="@{/video/} + ${course.videos.get(1).id}" class="sidebar__task-list-item sidebar__task-list-item_active sidebar__task-list-item_completed">
-                <span class="sidebar__task-list-item-text" >Урок 2.Базовые инструменты</span>
-                </a> <br>
-
-                <a th:href="@{/video/} + ${course.videos.get(2).id}" class="sidebar__task-list-item sidebar__task-list-item_active sidebar__task-list-item_completed">
-                <span class="sidebar__task-list-item-text" >Урок 3.Копирование</span>
-                </a> <br>
-
-                <a th:href="@{/video/} + ${course.videos.get(3).id}" class="sidebar__task-list-item sidebar__task-list-item_active sidebar__task-list-item_completed">
-                <span class="sidebar__task-list-item-text" >Урок 4.Опорные точки</span>
-                </a> <br>
-
-                <a th:href="@{/video/} + ${course.videos.get(4).id}" class="sidebar__task-list-item sidebar__task-list-item_active sidebar__task-list-item_completed">
-                <span class="sidebar__task-list-item-text" >Урок 5.Группировка</span>
-                </a> <br>
-
-                <a th:href="@{/video/} + ${course.videos.get(5).id}" class="sidebar__task-list-item sidebar__task-list-item_active sidebar__task-list-item_completed">
-                <span class="sidebar__task-list-item-text" >Урок 6.Выравнивание</span>
-                </a> <br>
-
-                <a th:href="@{/video/} + ${course.videos.get(6).id}" class="sidebar__task-list-item sidebar__task-list-item_active sidebar__task-list-item_completed">
-                <span class="sidebar__task-list-item-text" >Урок 7.Массивы</span>
-                </a> <br>
+                
             </div>
         </div>
     </nav>
