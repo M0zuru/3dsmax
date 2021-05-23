@@ -34,6 +34,10 @@
                 <input th:if="${video.id != 0}" type="hidden" th:field="*{id}" th:value="${video.id}">
                 <input name="video" type="file" accept="video/*">
                 <input type="hidden" th:field="*{path}" th:value="${video.path}">
+                <p>Homework</p>
+                <input th:field="*{homework}" th:value="${video.homework}">
+                <p th:if="${#fields.hasErrors('homework')}" th:errors="*{homework}">Homework Error</p>
+                <input name="attachment" type="file" th:value="${video.attachment}" accept="image/png, image/jpeg">
                 <button type="submit" class="btn">Save video</button>
             </div>
         </form>

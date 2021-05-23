@@ -36,6 +36,12 @@ public class Video {
 	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinColumn(name = "courses_id")
 	private Course course;
+	
+	@Column(name = "homework")
+	private String homework;
+	
+	@Column(name = "attachment")
+	private String attachment;
 
 	public int getId() {
 		return id;
@@ -75,6 +81,22 @@ public class Video {
 
 	public void setCourse(Course course) {
 		this.course = course;
+	}
+
+	public String getHomework() {
+		return homework;
+	}
+
+	public void setHomework(String homework) {
+		this.homework = homework;
+	}
+
+	public String getAttachment() {
+		return attachment;
+	}
+
+	public void setAttachment(String attachment) {
+		this.attachment = attachment;
 	}
 	
 

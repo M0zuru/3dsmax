@@ -8,4 +8,5 @@ import java.io.IOException;
 public interface VideoService {
     Video getVideoById(Integer id);
     Video save(Video video, MultipartFile uploadVideo) throws IOException;
+    Video save(Video video, MultipartFile uploadVideo, MultipartFile attachment) throws IOException;
 }

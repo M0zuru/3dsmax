@@ -53,10 +53,11 @@ public class VideoController {
     @Secured("ROLE_ADMIN")
     @PostMapping("/add_video")
     public String addVideo(Model model, @Valid Video video, Errors errors,
-                           @RequestParam("video") MultipartFile uploadVideo, @RequestParam("courseId") Integer courseId) throws IOException {
+                           @RequestParam("video") MultipartFile uploadVideo, @RequestParam("courseId") Integer courseId,
+                           @RequestParam("attachment") MultipartFile attachment) throws IOException {
         if (!errors.hasErrors()) {
             video.setCourse(courseService.getCourseById(courseId));
-            videoService.save(video, uploadVideo);
+            videoService.save(video, uploadVideo, attachment);
             return "redirect:/video/" + video.getId();
         }
         model.addAttribute("video", video);

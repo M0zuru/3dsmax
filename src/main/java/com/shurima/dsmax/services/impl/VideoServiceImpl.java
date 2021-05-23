@@ -30,16 +30,32 @@ public class VideoServiceImpl implements VideoService {
     @Override
     public Video save(Video video, MultipartFile uploadVideo) throws IOException {
         if ((!uploadVideo.isEmpty()) && (uploadVideo.getSize() != 0)) {
-            saveProfilePicture(uploadVideo, video);
+            saveVideo(uploadVideo, video);
+        }
+        videoRepository.save(video);
+        return video;
+    }
+    
+    @Override
+    public Video save(Video video, MultipartFile uploadVideo, MultipartFile attachment) throws IOException {
+        if ((!uploadVideo.isEmpty()) && (uploadVideo.getSize() != 0)) {
+            saveVideo(uploadVideo, video);
+            saveAttachment(attachment, video);
         }
         videoRepository.save(video);
         return video;
     }
 
-    private void saveProfilePicture(MultipartFile uploadVideo, Video video) throws IOException {
+    private void saveVideo(MultipartFile uploadVideo, Video video) throws IOException {
         String imageName = StringUtils.cleanPath(uploadVideo.getOriginalFilename());
         uploadService.saveFile(imagesDir, imageName, uploadVideo);
         video.setPath(uploadService.getPath(imagesDir, imageName));
-        videoRepository.save(video);
+        
+    }
+    
+    private void saveAttachment(MultipartFile attachment, Video video) throws IOException {
+        String imageName = StringUtils.cleanPath(attachment.getOriginalFilename());
+        uploadService.saveFile(imagesDir, imageName, attachment);
+        video.setAttachment(uploadService.getPath(imagesDir, imageName));
     }
 }
