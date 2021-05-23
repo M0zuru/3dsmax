@@ -54,7 +54,7 @@ public class VideoController {
     @PostMapping("/add_video")
     public String addVideo(Model model, @Valid Video video, Errors errors,
                            @RequestParam("video") MultipartFile uploadVideo, @RequestParam("courseId") Integer courseId,
-                           @RequestParam("attachment") MultipartFile attachment) throws IOException {
+                           @RequestParam("attachmentFile") MultipartFile attachment) throws IOException {
         if (!errors.hasErrors()) {
             video.setCourse(courseService.getCourseById(courseId));
             videoService.save(video, uploadVideo, attachment);

@@ -39,7 +39,9 @@ public class VideoServiceImpl implements VideoService {
     @Override
     public Video save(Video video, MultipartFile uploadVideo, MultipartFile attachment) throws IOException {
         if ((!uploadVideo.isEmpty()) && (uploadVideo.getSize() != 0)) {
-            saveVideo(uploadVideo, video);
+            saveAttachment(attachment, video);
+        }
+        if ((!attachment.isEmpty()) && (attachment.getSize() != 0)) {
             saveAttachment(attachment, video);
         }
         videoRepository.save(video);
